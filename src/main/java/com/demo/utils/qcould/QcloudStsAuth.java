@@ -1,6 +1,5 @@
 package com.demo.utils.qcould;
 
-import com.google.gson.Gson;
 import com.qcloud.cos.utils.UrlEncoderUtils;
 import com.demo.property.CosProperties;
 import com.demo.utils.Json.JSONObject;
@@ -80,8 +79,7 @@ public class QcloudStsAuth {
         Map<String, Object> policy = new LinkedHashMap<String, Object>();
         policy.put("version", "2.0");
         policy.put("statement", statement);
-        Gson gson = new Gson();
-        String policyStr = gson.toJson(policy);
+        String policyStr = new JSONObject(policy).toString();
         params.put("policy", policyStr);
         String paramStr = "GETsts.api.qcloud.com/v2/index.php" + Sign.buildParamStr(params, "GET");
         String signature = URLEncoder.encode(Sign.sign(paramStr, config.get("SecretKey").toString(), "sha1"),"UTF-8");
