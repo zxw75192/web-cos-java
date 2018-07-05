@@ -14,10 +14,6 @@
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <optional>true</optional>
             </dependency>
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-            </dependency>
 * 2.腾讯云cos的参数  application.yml中配置
         cosProperties:
           bucketName: zxwxxxx51
